@@ -21,7 +21,7 @@ public class DemoHystrixApplication {
 
 		// demo.simulateExcessiveRequestsWaiting(api);
 
-		// demo.simulateCircuitError(api);
+		// demo.simulateExcessiveErrors(api);
 
 		// demo.simulateTimeout(api);
 	}
@@ -61,7 +61,7 @@ public class DemoHystrixApplication {
 
 	}
 
-	private void simulateCircuitError(Api api) {
+	private void simulateExcessiveErrors(Api api) {
 
 		while (true) {
 

@@ -1,7 +1,10 @@
 package com.example.demohystrix;
 
+import org.springframework.stereotype.Service;
+
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
+@Service
 public class Api {
 
 	@HystrixCommand(fallbackMethod = "fallbackGetHello")

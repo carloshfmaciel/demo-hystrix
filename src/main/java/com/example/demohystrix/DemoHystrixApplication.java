@@ -13,17 +13,19 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class DemoHystrixApplication {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		// SpringApplication.run(DemoHystrixApplication.class, args);
 		ApplicationContext ctx = SpringApplication.run(DemoHystrixApplication.class, args);
 		Api api = ctx.getBean(Api.class);
 		DemoHystrixApplication demo = new DemoHystrixApplication();
 
+		// demo.simulateTimeout(api);
+		
 		// demo.simulateExcessiveRequestsWaiting(api);
 
 		// demo.simulateExcessiveErrors(api);
-
-		// demo.simulateTimeout(api);
+		
 	}
 
 	@Bean
@@ -31,6 +33,7 @@ public class DemoHystrixApplication {
 		return new Api();
 	}
 
+	@SuppressWarnings("unused")
 	private void simulateTimeout(Api api) {
 
 		for (int i = 1; i <= 10; i++) {
@@ -38,6 +41,7 @@ public class DemoHystrixApplication {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private void simulateExcessiveRequestsWaiting(Api api) {
 
 		while (true) {
@@ -61,6 +65,7 @@ public class DemoHystrixApplication {
 
 	}
 
+	@SuppressWarnings("unused")
 	private void simulateExcessiveErrors(Api api) {
 
 		while (true) {

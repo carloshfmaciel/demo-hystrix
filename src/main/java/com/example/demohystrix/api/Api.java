@@ -26,7 +26,7 @@ public class Api {
 	})
 	public void doExceptionsForOddNumbers(int someValue) {
 
-		System.out.println("Conectando no banco de dados for request number " + someValue);
+		System.out.println("Entrou no endpoint for request number " + someValue);
 
 		if (someValue % 2 != 0) {
 			throw new RuntimeException("Banco de dados indisponível!");
@@ -46,13 +46,13 @@ public class Api {
 		try {
 			Thread.sleep(delayTime);
 		} catch (InterruptedException e) {
-			System.out.println(String.format("Request number %d interrupted by exceed timeout!", requestNumber));
+//			System.out.println(String.format("Request number %d interrupted by exceed timeout!", requestNumber));
 		}
 	}
 
 	public void fallbackDoSomeWithDelay(int requestNumber, long delayTime, Throwable exception) {
 		System.out.println(String.format("Fallback being executed to request number %d . Exception: %s.", requestNumber,
-				exception.getMessage()));
+				exception));
 	}
 
 }

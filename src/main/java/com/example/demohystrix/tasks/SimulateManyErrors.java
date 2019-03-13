@@ -26,7 +26,7 @@ public class SimulateManyErrors implements Runnable {
 			Utils.wait3Seconds();
 
 			for (int i = 1; i <= 20; i++) {
-				System.out.println("Doing request number : " + i);
+//				System.out.println("Doing request number : " + i);
 				new Thread(new SimulateManyErrors(i, api)).start();
 			}
 

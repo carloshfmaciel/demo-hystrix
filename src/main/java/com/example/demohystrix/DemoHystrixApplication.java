@@ -7,6 +7,9 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 import org.springframework.context.ApplicationContext;
 
 import com.example.demohystrix.api.Api;
+import com.example.demohystrix.tasks.SimulateManyActiveThreads;
+import com.example.demohystrix.tasks.SimulateManyErrors;
+import com.example.demohystrix.tasks.SimulateTimeout;
 
 @EnableHystrix
 @EnableHystrixDashboard

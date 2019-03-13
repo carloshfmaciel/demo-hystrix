@@ -1,8 +1,9 @@
-package com.example.demohystrix;
+package com.example.demohystrix.api;
 
 import org.springframework.stereotype.Service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
 @Service
 public class Api {
@@ -17,7 +18,12 @@ public class Api {
 		return "Calling Fallback! Requisição rejeitada pelo Hystrix!";
 	}
 
-	@HystrixCommand(fallbackMethod = "fallbackDoExceptionsForOddNumbers")
+	@HystrixCommand(fallbackMethod = "fallbackDoExceptionsForOddNumbers", commandProperties = {
+			@HystrixProperty(name="metrics.rollingStats.timeInMilliseconds", value="3000"),
+			@HystrixProperty(name="circuitBreaker.errorThresholdPercentage", value="30"),
+			@HystrixProperty(name="circuitBreaker.requestVolumeThreshold", value="10"),
+			@HystrixProperty(name="circuitBreaker.sleepWindowInMilliseconds", value="10")
+	})
 	public void doExceptionsForOddNumbers(int someValue) {
 
 		System.out.println("Conectando no banco de dados for request number " + someValue);
